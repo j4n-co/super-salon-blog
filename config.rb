@@ -59,26 +59,6 @@ activate :tumblargh,
   api_key: '2DHicxoSBUJlQdVxXtQxW3zB3f0UIPlVUBbYMbtmdF1r4ziJpS', # This is your OAuth consumer key
   blog: 'supersalonwarsaw.tumblr.com'
 
-
-#!/usr/bin/env ruby
-require 'rubygems'
-require 'bundler/setup'
-
-require 'tumblargh'
-
-Tumblargh::API::set_api_key '2DHicxoSBUJlQdVxXtQxW3zB3f0UIPlVUBbYMbtmdF1r4ziJpS'
-
-map "/" do
-
-  app = proc do |env|
-    html = Tumblargh::render_file('my_theme.html', 'supersalonwarsaw.tumblr.com')
-
-    [200, { "Content-Type" => "text/html" }, html.lines]
-  end
-
-  run app
-end
-
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
